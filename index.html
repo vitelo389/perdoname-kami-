@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perdón, Kami</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f2f2f2;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        #buttonYes {
+            background-color: #4CAF50;
+            color: white;
+        }
+        #buttonNo {
+            background-color: #f44336;
+            color: white;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kami, ¿me perdonas?</h1>
+        <button id="buttonYes" onclick="redirect()">Sí</button>
+        <button id="buttonNo" onclick="changeMessage()">No</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        const messages = ["Por favor!!!", "Ándale.", "Yo sé que quieres.", "¿Sí?"];
+        let messageIndex = 0;
+
+        function changeMessage() {
+            document.getElementById('message').innerText = messages[messageIndex];
+            messageIndex = (messageIndex + 1) % messages.length;
+            document.getElementById('buttonYes').style.fontSize = (parseInt(window.getComputedStyle(document.getElementById('buttonYes')).fontSize) + 2) + "px";
+        }
+
+        function redirect() {
+            window.location.href = "carta.html";
+        }
+    </script>
+</body>
+</html>
